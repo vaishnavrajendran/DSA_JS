@@ -1,11 +1,12 @@
-let arr = []
 function range(start, end) {
-    if(start<end){
-        arr.push(start)
-        return range(++start, end)
+    if(end<start){
+        return []
+    } else {
+        const numbers = range(start, end-1);
+        numbers.push(end)
+        return numbers;
     }
-    arr.push(end)
-    return arr;
+
 }
 
 console.log(range(5, 11));
