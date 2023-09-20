@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Recursion&BackTracking\\rangeOfNumbers.js"
+            "program": "${workspaceFolder}\\PatternPrinting\\invertedRightTriangle.js"
         }
     ]
 }

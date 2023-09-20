@@ -9,7 +9,7 @@ const binarySearch = (sortedArray, start, end, find) => {
             end = mid-1;
         } else {
             start = mid+1
-        }
+        }   
     }
     return -1;
 }
