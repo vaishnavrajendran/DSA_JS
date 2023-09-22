@@ -21,17 +21,11 @@ Explanation: The smallest positive integer 1 is missing.
 */
 
 const cyclicSort = (nums) => {
-    let i = 0;
-    while (i < nums.length) {
-        if (nums[i] > 0 && nums[i] <= nums.length) {
-            let moveTo = nums[i] - 1;
-            if (nums[moveTo] !== nums[i]) {
-                [nums[i], nums[moveTo]] = [nums[moveTo], nums[i]];
-            } else {
-                i++;
-            }
-        } else {
-            i++;
+    for (let i = 0; i < nums.length; i++) {
+        let moveTo = nums[i]-1;
+        if (nums[i] < nums.length && nums[i] !== nums[moveTo] && nums[i] > 0) {
+            [nums[i], nums[moveTo]] = [nums[moveTo], nums[i]]
+            i--;
         }
     }
     return nums;
@@ -39,13 +33,14 @@ const cyclicSort = (nums) => {
 
 const firstMissingPostive = (nums) => {
     let sortedArray = cyclicSort(nums)
-    for (let i = 0; i < sortedArray.length; i++) {
-        if(sortedArray[i] !== i+1){
-            return i+1;
+    for (let i = 0; i < sortedArray.length; i++) { 
+        if (sortedArray[i] !== i + 1) {
+            return i + 1;
         }
     }
-    return -1;
+    return nums.length + 1;
 }
 
-const nums = [1,2,0];
+const nums = [3,4,-1,1];
+// const nums = [1, 2, 0];
 console.log(firstMissingPostive(nums));
