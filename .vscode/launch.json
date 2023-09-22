@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\PatternPrinting\\invertedRightTriangle.js"
+            "program": "${workspaceFolder}\\Arrays\\duplicateNumber[1,n].js"
         }
     ]
 }
