@@ -1,0 +1,10 @@
+/*
+
+>>
+if wanted to return next index or first index(if the position of the element is at the end) use :=> letters[start % letters.length];
+REF:
+1. C:\Users\Admin\Documents\DSA_JS\Arrays\Searching\BinarySearch\searchInsertPosition.js
+2. c:\Users\Admin\Documents\DSA_JS\Arrays\Searching\BinarySearch\ceilingOfTarget.js
+>>
+
+*/
