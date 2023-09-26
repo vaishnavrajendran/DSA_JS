@@ -24,7 +24,36 @@ Explanation: 3 does not exist in the array, so we return -1.
 */
 
 const findInMountainArray = (target, mountainArr) => {
-    
-};
+    let findPeak = function(start, end) {
+        while (start < end) {
+            let mid = Math.floor((start + end) / 2);
+            if (mountainArr.get(mid) < mountainArr.get(mid + 1)) {
+                start = mid + 1;
+            } else {
+                end = mid;
+            }
+        }
+        return start;
+    }
 
-console.log(findInMountainArray(3, [1,2,3,4,5,3,1]));
+    let peakIndex = findPeak(0, mountainArr.length() - 1);
+
+    let binarySearch = function(start, end, compare) {
+        while (start <= end) {
+            let mid = Math.floor((start + end) / 2);
+            let midValue = mountainArr.get(mid);
+            if (midValue === target) return mid;
+            if (compare(midValue)) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    let result = binarySearch(0, peakIndex, (value) => value > target);
+    if (result !== -1) return result;
+
+    return binarySearch(peakIndex, mountainArr.length() - 1, (value) => value < target);
+};
