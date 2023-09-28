@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Arrays\\duplicateNumber[1,n].js"
+            "program": "${workspaceFolder}\\Arrays\\Searching\\BinarySearch\\splitArrayLargestSum.js"
         }
     ]
 }
