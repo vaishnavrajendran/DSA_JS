@@ -1,4 +1,5 @@
-/* APPROACH 1 (more preffered in my case)*/ 
+// leetcode 33 [Medium]  
+/* APPROACH 1 */  //Both will not work for array with duplicate elements
 const rotatedBinarySearch = (array, target) => {
     let start = 0, end = array.length - 1;
     while (start <= end) {
@@ -21,19 +22,21 @@ const rotatedBinarySearch = (array, target) => {
     return -1;
 }
 
-console.log(rotatedBinarySearch([5, 1, 3], 5));
+console.log(rotatedBinarySearch([3, 5, 1, 3, 3], 5));
 
-/* APPROACH 2 (more edge cases to be managed) */
+/* APPROACH 2 (more efficient)*/
 const findMaxIndex = function (array, start, end) {
-    while (start < end) {
+    while (start <= end) {
         let mid = Math.floor((start + end) / 2);
-        if (array[mid] < array[mid + 1]) {
-            start = mid + 1
+        if (mid < end && array[mid] > array[mid + 1]) return mid;
+        if (mid > start && array[mid] < array[mid - 1]) return mid - 1;
+        if (array[mid] <= array[start]) {
+            end = mid - 1;
         } else {
-            end = mid
+            start = mid + 1;
         }
     }
-    return start
+    return -1
 }
 
 const binarySearch = (sortedArray, start, end, find) => {
@@ -51,10 +54,17 @@ const binarySearch = (sortedArray, start, end, find) => {
 
 const search = (array, target) => {
     let start = 0, end = array.length - 1;
+    //Find pivot
     let maxIndex = findMaxIndex(array, start, end)
-    const firstArrayValue = binarySearch(array, start, maxIndex, target);
-    const secondArrayValue = binarySearch(array, maxIndex + 1, end, target)
-    return firstArrayValue !== -1 ? firstArrayValue : secondArrayValue
+    if (array[maxIndex] === target) return maxIndex;
+    if (maxIndex === -1) {
+        return binarySearch(array, start, end, target)
+    }
+    if (target >= array[start]) {
+        return binarySearch(array, start, maxIndex - 1, target)
+    } else {
+        return binarySearch(array, maxIndex + 1, end, target)
+    }
 }
 
-console.log(search([5, 1, 3], 5));
+console.log(search([3, 5, 1], 3));
