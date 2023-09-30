@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Arrays\\Searching\\BinarySearch\\splitArrayLargestSum.js"
+            "program": "${workspaceFolder}\\Recursion&BackTracking\\selectionSort.js"
         }
     ]
 }
