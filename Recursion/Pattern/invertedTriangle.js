@@ -13,23 +13,21 @@
 
 */
 
-
-function printStars(num) {
-    printTriangle(num, 0, '');
+function printStarts(num) {
+    return printTriangle(num, 0, '')
 }
 
-const printTriangle = (r, c, stars) => {
-    if (c < r) {
-        stars = stars.concat('*');
-        printTriangle(r, c + 1, stars);
-    } else {
+const printTriangle = (c, r, stars) => {
+    if (c === 0) return stars;
+    while (r < c) {
+        stars = stars.concat('*')
+        r++
+    }
+    if (c === r) {
         console.log(stars);
-        if (r > 0) {
-            printTriangle(r - 1, 0, '');
-        }
+        printTriangle(c - 1, 0, '')
+        console.log(stars);
     }
 }
 
-printStars(5);
-
-
+printStarts(5)
