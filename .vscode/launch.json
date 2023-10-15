@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Recursion\\Sorting(Recursion)\\mergeSort.js"
+            "program": "${workspaceFolder}\\Recursion\\Sorting(Recursion)\\quickSort.js"
         }
     ]
 }
