@@ -67,3 +67,26 @@
 // queue.dequeue();
 // queue.dequeue();
 // queue.dequeue();
+class Parent {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    return `Hii my name is ${this.name}`;
+  }
+}
+
+class Kid extends Parent {
+  constructor(name, age) {
+    super(name);
+    this.age = age;
+  }
+
+  greetAndAge() {
+    console.log(`${this.greet()} and I am ${this.age} years old`);
+  }
+}
+
+const kid = new Kid("John", 10);
+kid.greetAndAge();
